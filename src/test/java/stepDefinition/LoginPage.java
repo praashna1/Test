@@ -2,25 +2,20 @@ package stepDefinition;
 
 import io.cucumber.java.en.Given;
 import org.openqa.selenium.WebDriver;
-import pages.Form;
+import pages.LoginForm;
 import utility.BrowserDriver;
+import static pages.LoginForm.*;
+import static utility.Config.login_url;
 
-import static pages.Form.*;
-
-public class BasePage {
+public class LoginPage {
     WebDriver driver= BrowserDriver.getDriver();
-    Form form=new Form(driver);
+    LoginForm form=new LoginForm(driver);
     @Given("^user enters (.*) and (.*)$")
     public void data(String email, String password) throws InterruptedException{
-       // sendName();
+        driver.get(login_url);
+
         sendEmail(email);
         sendPassword(password);
-       // sendLocation();
-       // sendProvince();
-       // sendTole();
-       // sendWard();
-       // sendPrimary();
-       // sendSecond();
         sendButton();
     }
 }

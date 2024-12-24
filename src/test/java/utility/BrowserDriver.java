@@ -15,7 +15,11 @@ public class BrowserDriver {
             System.setProperty("webdriver.http.factory", "jdk-http-client");
             System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/test/resources/chromedriver.exe");
             driver = new ChromeDriver(options);
-            driver.get("http://localhost:3000");
+            options.addArguments("--disable-web-security"); // Disable CORS for testing purposes
+            options.addArguments("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36");
+
+
+            driver.get(Config.base_url); //  from Config
             isInitialized = true;
             System.out.println("WebDriver initialized: " + driver);
         } else {

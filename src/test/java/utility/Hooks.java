@@ -13,15 +13,15 @@ public class Hooks {
         new BrowserDriver();  // Initialize BrowserDriver
         WebDriver driver = BrowserDriver.getDriver();
         driver.manage().window().maximize();
-        driver.get("http://localhost:3000");
+        driver.get(Config.base_url);
         System.out.println("Driver setup in Hooks: " + driver);
     }
 
-//    @After
-//    public void tearDown() {
-//        if (BrowserDriver.driver != null) {
-//            new BrowserDriver().close();
-//            System.out.println("Driver closed in Hooks.");
-//        }
-//    }
+    @After
+    public void tearDown() {
+        if (BrowserDriver.driver != null) {
+            new BrowserDriver().close();
+            System.out.println("Driver closed in Hooks.");
+        }
+    }
 }
