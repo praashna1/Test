@@ -2,7 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -32,43 +31,42 @@ public class SignForm {
 
 
     public static void sendName(String username){
-        driver.findElement(By.xpath(firstnamepath)).sendKeys(username);
+        driver.findElement(By.xpath(firstnamepath)).sendKeys(username.trim());
     }
 
     public static void sendEmail(String email){
-        driver.findElement(By.xpath(emailpath)).sendKeys(email);
+        driver.findElement(By.xpath(emailpath)).sendKeys(email.trim());
     }
     public static void sendPassword(String password){
-        driver.findElement(By.xpath(passwordpath)).sendKeys(password);
+        driver.findElement(By.xpath(passwordpath)).sendKeys(password.trim());
 
     }
     public static void sendProvince(String province){
-        driver.findElement(By.xpath(provincepath)).sendKeys(province);
+        driver.findElement(By.xpath(provincepath)).sendKeys(province.trim());
     }
 
     public static void sendTole(String tole){
-        driver.findElement(By.xpath(tolepath)).sendKeys(tole);
+        driver.findElement(By.xpath(tolepath)).sendKeys(tole.trim());
     }
 
     public static void sendWard(String ward){
-        driver.findElement(By.xpath(wardpath)).sendKeys(ward);
+        driver.findElement(By.xpath(wardpath)).sendKeys(ward.trim());
     }
 
     public static void sendLocation(String location){
-        driver.findElement(By.xpath(locationpath)).sendKeys(location);
+        driver.findElement(By.xpath(locationpath)).sendKeys(location.trim());
     }
 
     public static void sendPrimary(String primary){
-        driver.findElement(By.xpath(primaryContactpath)).sendKeys(primary);
+        driver.findElement(By.xpath(primaryContactpath)).sendKeys(primary.trim());
     }
 
     public static void sendSecond(String secondary){
-        driver.findElement(By.xpath(secondaryContactpath)).sendKeys(secondary);
+        driver.findElement(By.xpath(secondaryContactpath)).sendKeys(secondary.trim());
     }
 
-    public static void sendButton(){
+    public static void sendButton() {
         driver.findElement(By.xpath(button)).click();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        wait.until(ExpectedConditions.alertIsPresent());    }
+    }
 
 }

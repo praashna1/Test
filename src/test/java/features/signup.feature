@@ -7,7 +7,7 @@ Feature: Signup
 
     Examples:
       | username   | email           | password  | province  | tole   | ward | location | pContact   | sContact   | flag|
-      | Prashna Ad | tet3@gmail.com  | Pp@12345  | Bagmati   | shanti | 3    | ktm      | 9802342567 | 9875231245 |  Y   |
+      | Prashna Ad | workplease4@gmail.com  | Pp@#12345  | Bagmati   | shanti | 3    | ktm      | 9802342567 | 9875231245 |  Y   |
 
 #      | prashna12   | test@gmail.com   | Pp@1141     | bagmati  | ktm1     | 3    | shanti | 9802342567 | 9875231245 | N   |
 #      | prashna    | test7668@gmail.com   | Prash@123     | bagmati  | ktm    | 3    | shanti | 9802342567 | 9875231245 | Y  |

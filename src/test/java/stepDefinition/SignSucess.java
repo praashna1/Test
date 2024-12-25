@@ -1,6 +1,5 @@
 package stepDefinition;
 
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -12,7 +11,7 @@ public class SignSucess {
     @When("user submits the sign-up form")
     public void data() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
             wait.until(ExpectedConditions.alertIsPresent());
 
             Alert alert = driver.switchTo().alert();

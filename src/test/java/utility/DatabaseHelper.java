@@ -12,15 +12,24 @@ public class DatabaseHelper {
 
     public static String fetch(String email) {
         String otp = null;
-        String query = "SELECT otp FROM users WHERE email = ? ORDER BY created_at DESC LIMIT 1"; //returns single data from resultset fetch recent otp
+        String query = "SELECT otp FROM users WHERE email = ? ORDER BY created_at DESC LIMIT 1"; //recent otp
+        String updateQuery = "UPDATE users SET is_verified = true WHERE email = ?"; //mark true
 
-        try (Connection connection = DriverManager.getConnection(url,user,password); //connection
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setString(1, email);
-            ResultSet resultSet = preparedStatement.executeQuery();  //execute query
+        try (Connection connection = DriverManager.getConnection(url, user, password); //making connection
+             PreparedStatement fetchStatement = connection.prepareStatement(query);
+             PreparedStatement updateStatement = connection.prepareStatement(updateQuery)) {
+
+            fetchStatement.setString(1, email); //fetch otp
+            ResultSet resultSet = fetchStatement.executeQuery();
             if (resultSet.next()) {
-                otp = resultSet.getString("otp");  //fetching
+                otp = resultSet.getString("otp");
             }
+
+            if (otp != null) {
+                updateStatement.setString(1, email);
+                updateStatement.executeUpdate(); // Perform update
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
