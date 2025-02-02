@@ -17,11 +17,11 @@ public class LoginForm {
     }
     public static String emailLocate = "//*[@id=\"exampleInputEmail1\"]";
     public static String passwordLocate = "//*[@id=\"exampleInputPassword1\"]";
-    public static String button = "//*[@id=\"root\"]/div[2]/form/button";
+    public static String button = "//*[@id=\"root\"]/div/form/button";
 
-    public static void sendEmail(String email) throws InterruptedException {
+    public static void sendEmail(String email) {
         driver.findElement(By.xpath(emailLocate)).sendKeys(email);
-        Thread.sleep(100);
+        //Thread.sleep(100);
     }
 
     public static void sendPassword(String password) {

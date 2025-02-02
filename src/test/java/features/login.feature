@@ -6,5 +6,5 @@ Feature: Login form
     Then user should be redirected to homepage with flag <flag>
     Examples:Valid and Invalid email id.
       | email | password |flag|
-    |  test7668@gmail.com     |  123@Test        |Y|
+    |  ishabhatta41@gmail.com     |  Isha@1234        |Y|
     |  test@gmail.com         |           12Test       |N|
